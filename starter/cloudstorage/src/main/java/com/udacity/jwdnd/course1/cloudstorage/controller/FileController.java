@@ -36,7 +36,7 @@ public class FileController {
         boolean rs = false;
         String msg = null;
         if (userId != null) {
-            if (multipartFile==null || multipartFile.isEmpty()) {
+            if (multipartFile == null || multipartFile.isEmpty()) {
                 msg = "File is empty.";
             } else {
                 if (fileService.getFileOfUser(userId, multipartFile.getOriginalFilename()) != null) {

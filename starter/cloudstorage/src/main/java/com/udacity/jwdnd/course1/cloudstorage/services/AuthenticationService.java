@@ -24,19 +24,19 @@ public class AuthenticationService implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
-        System.out.println("username: "+ username);
-        System.out.println("password: "+ password);
+        System.out.println("username: " + username);
+        System.out.println("password: " + password);
         User user = userMapper.getUser(username);
-        System.out.println("user: "+ user);
+        System.out.println("user: " + user);
         if (user != null) {
             String encodedSalt = user.getSalt();
             String hashedPassword = hashService.getHashedValue(password, encodedSalt);
-            System.out.println("hashedPassword:"+hashedPassword);
-            System.out.println("user.getPassword():"+user.getPassword());
+            System.out.println("hashedPassword:" + hashedPassword);
+            System.out.println("user.getPassword():" + user.getPassword());
 
             if (user.getPassword().equals(hashedPassword)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>());
-                System.out.println("usernamePasswordAuthenticationToken:"+usernamePasswordAuthenticationToken);
+                System.out.println("usernamePasswordAuthenticationToken:" + usernamePasswordAuthenticationToken);
                 return usernamePasswordAuthenticationToken;
             }
         }

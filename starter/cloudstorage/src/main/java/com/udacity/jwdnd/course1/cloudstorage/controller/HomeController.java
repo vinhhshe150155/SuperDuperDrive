@@ -27,11 +27,12 @@ public class HomeController {
     }
 
     @GetMapping
-    public String getHomePage(Authentication authentication, Note note, Credential credential, Model model){
+    public String getHomePage(Authentication authentication, Note note, Credential credential, Model model) {
         String username = authentication.getName();
-        model.addAttribute("notes",this.noteService.getUserNotes(this.userService.getUserId(username)));
-        model.addAttribute("credentials",this.credentialService.getUserCredentials(this.userService.getUserId(username)));
+        model.addAttribute("notes", this.noteService.getUserNotes(this.userService.getUserId(username)));
+        model.addAttribute("credentials", this.credentialService.getUserCredentials(this.userService.getUserId(username)));
         model.addAttribute("encryptionService", encryptionService);
-        model.addAttribute("files",this.fileService.getUserFiles(this.userService.getUserId(username)));
-        return "home";}
+        model.addAttribute("files", this.fileService.getUserFiles(this.userService.getUserId(username)));
+        return "home";
+    }
 }
