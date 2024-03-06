@@ -43,6 +43,9 @@
                         </div>
                     </div>
                 </form>
+                <div th:if="${msgFile}">
+                    <h1 th:text="${msgFile}"></h1>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-striped" id="fileTable">
                         <thead>
@@ -87,7 +90,8 @@
                                         th:onclick="showNoteModal([[${note.noteId}]],[[${note.noteTitle}]],[[${note.noteDescription}]])">
                                     Edit
                                 </button>
-                                <a class="btn btn-danger" th:id="btn-delete-note" th:href="@{/deleteNote(noteId=${note.noteId})}">Delete</a>
+                                <a class="btn btn-danger" th:id="btn-delete-note"
+                                   th:href="@{/deleteNote(noteId=${note.noteId})}">Delete</a>
                             </td>
                             <th scope="row" th:text="${note.noteTitle}">Example Note Title</th>
                             <td th:text="${note.noteDescription}">Example Note Description</td>
@@ -126,7 +130,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" th:id="btn-note-submit" onclick="$('#noteSubmit').click();">Save
+                                <button type="button" class="btn btn-primary" th:id="btn-note-submit"
+                                        onclick="$('#noteSubmit').click();">Save
                                     changes
                                 </button>
                             </div>
@@ -202,7 +207,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="btn-credential-save" onclick="$('#credentialSubmit').click();">
+                                <button type="button" class="btn btn-primary" id="btn-credential-save"
+                                        onclick="$('#credentialSubmit').click();">
                                     Save changes
                                 </button>
                             </div>

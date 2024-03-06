@@ -36,6 +36,10 @@ public class UserService {
     }
 
     public Integer getUserId(String username) {
-        return userMapper.getUser(username).getUserId();
+        User user = userMapper.getUser(username);
+        if (user == null) {
+            return null;
+        }
+        return user.getUserId();
     }
 }

@@ -81,6 +81,6 @@ public class FileController {
         Integer userId = userService.getUserId(authentication.getName());
         boolean rs = userId != null && fileService.deleteFile(fileId) > 0;
         model.addAttribute("rs", rs);
-        return "redirect:/home";
+        return "result";
     }
 }
